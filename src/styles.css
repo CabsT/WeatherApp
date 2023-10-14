@@ -89,3 +89,7 @@ div.col-3 .numbers {
   top: 7px;
   left: -220px;
 }
+
+p.footer{
+  text-align: center;
+}
