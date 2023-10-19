@@ -30,8 +30,8 @@ function searchForCity(event) {
   let result = city.value;
   let h1 = document.querySelector("h1");
   h1.innerHTML = result;
-  let apiKey = "c819171fe0abdc14039af4ef5dda283b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${result}&units=metric&appid=${apiKey}`;
+  let apiKey = "f0t6f37fo7eacab2cf93452fbe48b35c";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${result}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemp);
 }
