@@ -37,7 +37,8 @@ function searchForCity(event) {
 }
 
 function showTemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  console.log(response.data);
+  let temp = Math.round(response.data.temperature.current);
   let tempCel = document.querySelector(".temperature");
   tempCel.innerHTML = temp;
 }
@@ -48,18 +49,20 @@ current.addEventListener("click", showCurrentCityTemp);
 function showCurrentCityTemp(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
-  function showPosition(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    let apiKey = "0f8bc384a7c31b717a18cfe38a95ae06";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`;
-    axios.get(apiUrl).then(showCurrentTemp);
-  }
+}
+
+function showPosition(position) {
+  console.log(position);
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let apiKey = "f0t6f37fo7eacab2cf93452fbe48b35c";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}`;
+  axios.get(apiUrl).then(showCurrentTemp);
 }
 
 function showCurrentTemp(response) {
-  let temp = Math.round(response.data.main.temp);
-  let city = response.data.name;
+  let temp = Math.round(response.data.temperature.current);
+  let city = response.data.city;
   let tempC = document.querySelector(".temperature");
   tempC.innerHTML = temp;
   let currentCity = document.querySelector("h1");
