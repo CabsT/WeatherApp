@@ -3,6 +3,19 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+h1 {
+  font-size: 30px;
+}
+ul {
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+#description {
+  text-transform: capitalize;
+}
 
 div.container {
   border: solid 2px#385170;
@@ -51,10 +64,14 @@ h1 {
   margin-bottom: 0;
 }
 
-span.celcius,
 span.emoji,
 span.temperature {
   font-size: 60px;
+}
+
+span.temperature {
+  position: relative;
+  top: 16px;
 }
 
 .container.text-center {
@@ -68,8 +85,8 @@ span.temperature {
   color: #9fd3c7;
   text-decoration: none;
   position: relative;
-  top: 20px;
-  left: -45px;
+  top: 32px;
+  left: -30px;
   font-size: 20px;
 }
 
@@ -91,10 +108,10 @@ div.col-3 .numbers {
 }
 .weatherinfo {
   list-style: none;
-  font-size: 12px;
+  font-size: 16px;
   position: relative;
-  top: 7px;
-  left: -220px;
+  top: 38px;
+  left: -160px;
 }
 
 p.footer {
