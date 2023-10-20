@@ -1,14 +1,17 @@
-let search = document.querySelector("button");
-search.addEventListener("click", searchForCity);
+let searchForCity = document.querySelector(".searchForm");
+searchForCity.addEventListener("submit", handleSubmit);
 
-function searchForCity(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector(".city");
-  let result = city.value;
+  search(city.value);
+}
+
+function search(city) {
   let h1 = document.querySelector("h1");
-  h1.innerHTML = result;
+  h1.innerHTML = city;
   let apiKey = "f0t6f37fo7eacab2cf93452fbe48b35c";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${result}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemp);
 }
