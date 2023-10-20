@@ -21,10 +21,15 @@
   </head>
   <body>
     <div class="container">
-      <form class>
-        <input type="search" class="city" placeholder="Type a city..." />
-        <button class="search">Search</button>
-        <button class="current">Current</button>
+      <form class="searchForm">
+        <input
+          type="search"
+          class="city"
+          placeholder="Type a city..."
+          autocomplete="off"
+        />
+        <input type="submit" value="Search" class="search" />
+        <input type="button" value="Current" class="current" />
       </form>
       <h1>Cape Town</h1>
       <ul>
@@ -47,7 +52,10 @@
         <div class="col-4">
           <ul class="weatherinfo">
             <li>Humidity: <span id="humidity">78</span>%</li>
-            <li>Wind: <span id="wind">26</span> km/h</li>
+            <li>
+              Wind:
+              <span id="wind">26</span> km/h
+            </li>
           </ul>
         </div>
       </div>
