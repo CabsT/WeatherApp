@@ -22,59 +22,66 @@
   <body>
     <div class="container">
       <form class>
-        <input
-          type="search"
-          class="city"
-          placeholder="Type a city..."
-        />
+        <input type="search" class="city" placeholder="Type a city..." />
         <button class="search">Search</button>
         <button class="current">Current</button>
       </form>
       <h1>Cape Town</h1>
-      <h2 id="date"></h2>
+      <ul>
+        <li id="date"></li>
+        <li id="description"></li>
+      </ul>
       <div class="row">
         <div class="col-4 numbers">
           <p><span class="celcius">🌤️</span><span class="temperature">17</span></p>
         </div>
         <div class="col-4">
-            
-                <p class="degrees">
-                  <span class="number"></span> <a id="ctemp" href="#">°C </a
-                  >
-                </p>
-             
+          <p class="degrees">
+            <span class="number"></span> <a id="ctemp" href="#">°C </a>
+          </p>
         </div>
         <div class="col-4">
-          <p>
-            <ul class="weatherinfo">
-            <li>Precipitation: 2%</li>
-            <li>Humidity: 78%</li
-            ><li> Wind: 26 km/h</li>
-            </ul>
-          </p>
+          <ul class="weatherinfo">
+            <li>Humidity: <span id="humidity">78</span>%</li>
+            <li>Wind: <span id="wind">26</span> km/h</li>
+          </ul>
         </div>
       </div>
       <div class="container text-center">
         <div class="row second">
           <div class="col day">
-            Wednesday <span class="emoji">🌧️</span><span class="value">18 |13°C</span>
+            Wednesday <span class="emoji">🌧️</span
+            ><span class="value">18 |13°C</span>
           </div>
           <div class="col day">
-            Thursday <span class="emoji">🌧️</span><span class="value">17 |12°C</span>
+            Thursday <span class="emoji">🌧️</span
+            ><span class="value">17 |12°C</span>
           </div>
           <div class="col day">
-            Friday <span class="emoji">☁️</span><span class="value">16 |12°C</span>
+            Friday <span class="emoji">☁️</span
+            ><span class="value">16 |12°C</span>
           </div>
           <div class="col day">
-            Saturday <span class="emoji">☁️</span><span class="value">17 |13°C</span>
+            Saturday <span class="emoji">☁️</span
+            ><span class="value">17 |13°C</span>
           </div>
           <div class="col day">
-            Sunday <span class="emoji">⛅</span><span class="value">19 |14°C</span>
+            Sunday <span class="emoji">⛅</span
+            ><span class="value">19 |14°C</span>
           </div>
         </div>
       </div>
     </div>
-    <p class="footer">This project was coded by Charné Teichert and is <a href ="https://github.com/CabsT/WeatherApp" target="_blank" class="link">open-sourced on GitHub </a> and <a href="https://www.netlify.com/"target="_blank" class="link">hosted on Netlify</a></p>
+    <p class="footer">
+      This project was coded by Charné Teichert and is
+      <a href="https://github.com/CabsT/WeatherApp" target="_blank" class="link"
+        >open-sourced on GitHub
+      </a>
+      and
+      <a href="https://www.netlify.com/" target="_blank" class="link"
+        >hosted on Netlify</a
+      >
+    </p>
     <script src="src/app.js"></script>
   </body>
 </html>
