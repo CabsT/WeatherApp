@@ -16,6 +16,8 @@ function search(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
+let celsiusTemp = null;
+
 function showTemp(response) {
   console.log(response.data);
   let temp = Math.round(response.data.temperature.current);
@@ -34,7 +36,31 @@ function showTemp(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
+  celsiusTemp = response.data.temperature.current;
 }
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  let fahrenheit = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheit);
+  celsiusTemperature.classList.remove("active");
+  fahrennheitTemp.classList.add("active");
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  let celsius = document.querySelector(".temperature");
+  celsius.innerHTML = Math.round(celsiusTemp);
+  celsiusTemperature.classList.add("active");
+  fahrennheitTemp.classList.remove("active");
+}
+
+let fahrennheitTemp = document.querySelector("#ftemp");
+fahrennheitTemp.addEventListener("click", showFahrenheit);
+
+let celsiusTemperature = document.querySelector("#ctemp");
+celsiusTemperature.addEventListener("click", showCelsius);
 
 function ShowdateTime(timeStamp) {
   let now = new Date(timeStamp * 1000);
@@ -95,9 +121,11 @@ function showCurrentTemp(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
+  celsiusTemp = response.data.temperature.current;
 }
