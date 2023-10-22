@@ -82,12 +82,20 @@ span.temperature {
   margin: 0;
 }
 
-#ctemp {
-  color: #9fd3c7;
-  text-decoration: none;
+#ctemp,
+#ftemp {
   position: relative;
-  top: 32px;
-  left: -30px;
+  top: 34px;
+  left: -26px;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+#divider {
+  position: relative;
+  top: 34px;
+  left: -26px;
   font-size: 20px;
 }
 
@@ -112,7 +120,7 @@ div.col-3 .numbers {
   font-size: 16px;
   position: relative;
   top: 38px;
-  left: -160px;
+  left: -100px;
 }
 
 p.footer {
@@ -140,4 +148,8 @@ p.footer {
   100% {
     transform: translateY(-3%);
   }
+}
+a.active {
+  cursor: default;
+  color: #9fd3c7;
 }
