@@ -1,3 +1,10 @@
+let h1 = document.querySelector("h1");
+h1.innerHTML = "Somerset West";
+
+let apiKey = "f0t6f37fo7eacab2cf93452fbe48b35c";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Somerset West&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(showTemp);
+
 let searchForCity = document.querySelector(".searchForm");
 searchForCity.addEventListener("submit", handleSubmit);
 
@@ -37,6 +44,14 @@ function showTemp(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
   celsiusTemp = response.data.temperature.current;
+  getForecast(response.data.coordinates);
+}
+
+function getForecast(coords) {
+  console.log(coords);
+  let apiKey = "f0t6f37fo7eacab2cf93452fbe48b35c";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showFahrenheit(event) {
@@ -106,6 +121,7 @@ function showPosition(position) {
 }
 
 function showCurrentTemp(response) {
+  console.log(response.data);
   let temp = Math.round(response.data.temperature.current);
   let city = response.data.city;
   let tempC = document.querySelector(".temperature");
@@ -128,4 +144,46 @@ function showCurrentTemp(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
   celsiusTemp = response.data.temperature.current;
+  getForecast(response.data.coordinates);
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#weatherForecast");
+  let forecast = response.data.daily;
+  let forecastHTML = "";
+
+  function formatDay(timestamp) {
+    let now = new Date(timestamp * 1000);
+    let day = now.getDay();
+    let daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+
+    return daysOfWeek[day];
+  }
+
+  forecast.forEach(function (forecastWeather, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="col-2">
+            <div class="weather-forecast-date">${formatDay(
+              forecastWeather.time
+            )}</div>
+            <img src ="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastWeather.condition.icon
+            }.png" alt ="" />
+            <div class = "weather-forecast-temp">
+              <span class="max-temp"> ${Math.round(
+                forecastWeather.temperature.maximum
+              )}°</span>
+              <span class="min-temp">${Math.round(
+                forecastWeather.temperature.minimum
+              )}°</span>
+             </div>
+          </div>
+            
+        `;
+    }
+  });
+  forecastElement.innerHTML = forecastHTML;
 }
