@@ -21,73 +21,53 @@
   </head>
   <body>
     <div class="container">
-      <form class="searchForm">
-        <input
-          type="search"
-          class="city"
-          placeholder="Type a city..."
-          autocomplete="off"
-        />
-        <input type="submit" value="Search" class="search" />
-        <input type="button" value="Current" class="current" />
-      </form>
-      <h1>Cape Town</h1>
-      <ul>
-        <li id="date"></li>
-        <li id="description"></li>
-      </ul>
-      <div class="row">
-        <div class="col-4 numbers">
-          <img
-            id="icon"
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-            alt="clear sky day"
-          /><span class="temperature">17</span>
-        </div>
-        <div class="col-4">
-          <p class="degrees">
-            <span class="number">
-              <a id="ctemp" class="active" href="#">°C </a
-              ><span id="divider">|</span>
-              <a id="ftemp" href="#" class="active">°F </a></span
-            >
-          </p>
-        </div>
-        <div class="col-4">
-          <ul class="weatherinfo">
-            <li>Humidity: <span id="humidity">78</span>%</li>
-            <li>
-              Wind:
-              <span id="wind">26</span> km/h
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="container text-center">
-        <div class="row second">
-          <div class="col day">
-            Wednesday <span class="emoji">🌧️</span
-            ><span class="value">18 |13°C</span>
+      <div class="wrapper">
+        <form class="searchForm">
+          <input
+            type="search"
+            class="city"
+            placeholder="Type a city..."
+            autocomplete="off"
+          />
+          <input type="submit" value="Search" class="search" />
+          <input type="button" value="Current" class="current" />
+        </form>
+        <h1></h1>
+        <ul>
+          <li id="date"></li>
+          <li id="description"></li>
+        </ul>
+        <div class="row">
+          <div class="col-4 numbers">
+            <img
+              id="icon"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+              alt="clear sky day"
+            /><span class="temperature"></span>
           </div>
-          <div class="col day">
-            Thursday <span class="emoji">🌧️</span
-            ><span class="value">17 |12°C</span>
+          <div class="col-4">
+            <p class="degrees">
+              <span class="number">
+                <a id="ctemp" class="active" href="#">°C </a
+                ><span id="divider">|</span>
+                <a id="ftemp" href="#" class="active">°F </a></span
+              >
+            </p>
           </div>
-          <div class="col day">
-            Friday <span class="emoji">☁️</span
-            ><span class="value">16 |12°C</span>
-          </div>
-          <div class="col day">
-            Saturday <span class="emoji">☁️</span
-            ><span class="value">17 |13°C</span>
-          </div>
-          <div class="col day">
-            Sunday <span class="emoji">⛅</span
-            ><span class="value">19 |14°C</span>
+          <div class="col-4">
+            <ul class="weatherinfo">
+              <li>Humidity: <span id="humidity">78</span><span> %</span></li>
+              <li>
+                Wind:
+                <span id="wind">26</span><span> km/h</span>
+              </li>
+            </ul>
           </div>
         </div>
+        <div class="row" id="weatherForecast"></div>
       </div>
     </div>
+
     <p class="footer">
       This project was coded by Charné Teichert and is
       <a href="https://github.com/CabsT/WeatherApp" target="_blank" class="link"
