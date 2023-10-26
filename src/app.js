@@ -187,3 +187,14 @@ function displayForecast(response) {
   });
   forecastElement.innerHTML = forecastHTML;
 }
+
+let searchInput = document.querySelector(".city");
+let container = document.querySelector(".wrapper");
+
+searchInput.addEventListener("focus", function () {
+  container.classList.add("clicked");
+});
+
+searchInput.addEventListener("blur", function () {
+  container.classList.remove("clicked");
+});
