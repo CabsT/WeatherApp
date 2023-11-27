@@ -37,7 +37,7 @@ function showTemp(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -135,7 +135,7 @@ function showCurrentTemp(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
 
   let windElement = document.querySelector("#wind");
@@ -169,7 +169,7 @@ function displayForecast(response) {
             <div class="weather-forecast-date">${formatDay(
               forecastWeather.time
             )}</div>
-            <img src ="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            <img src ="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
               forecastWeather.condition.icon
             }.png" alt ="" />
             <div class = "weather-forecast-temp">
