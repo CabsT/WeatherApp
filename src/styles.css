@@ -87,7 +87,6 @@ span.temperature {
 
 #weatherForecast {
   background-color: #9fd3c7;
-  max-width: 600px;
   min-width: 500px;
   text-align: center;
   padding: 20px;
